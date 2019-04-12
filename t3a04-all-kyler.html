@@ -1,0 +1,51 @@
+<h1 align=center>All Javascript by Fred</h1>
+
+<script>
+
+function my01(){
+   document.all.myArea01.value = 'wow it worked'
+}
+
+</script>
+
+<input type=text id="myText01" value="7"><br>
+<textarea id="myArea01" rows=4 cols=70>...</textarea><br>
+
+<input type=button value="output and function" onclick="{
+  my01()
+}">
+
+
+<input type=button value="input" onclick="{
+  document.all.myArea01.value = document.all.myText01.value
+}">
+
+
+
+<input type=button value="loops" onclick="{
+  for (let  x = 1; x <= 3;  x++){
+     document.all.myArea01.value +=  x + ', '
+  }
+}">
+
+
+<input type=button value="decisions" onclick="{
+   x = 9
+   if (x == 9){
+       document.all.myArea01.value = 'Wow a nine'
+} else {
+   document.all.myArea01.value = 'Wow not a nine'
+ }
+}">
+
+<input type=button value="arrays" onclick="{
+ myMax = 3
+ myArray = new Array(myMax)
+ myArray[1] = 'Fred'
+ myArray[2] = 'Tom'
+ myArray[3] = 'Marry'
+ document.all.myArea01.value = ''
+ for ( x = 1; x <= myMax; x++){
+  document.all,myArea01.value += myArray[x] + ', '
+ }
+}">
