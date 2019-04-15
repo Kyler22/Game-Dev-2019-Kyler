@@ -1,0 +1,100 @@
+<input id="myButton131" type="button" value="Extend a class" onclick="{
+
+class myAnimal {
+   constructor(passName, passAge) {
+      this.myName = passName;
+      this.myAge = passAge;
+}
+
+myShow(){
+    document.getElementById('myDiv131').innerHTML = 'Hello '+ this.myName + '. You are ' + this.myAge + ' years old<br>'
+  }
+
+}   // end class myAnimal 
+
+class myCat extends myAnimal {
+
+	myShow(){
+	   document.getElementById('myDiv131').innerHTML = this.myName + ' is a great cat who is ' + this.myAge + ' years old<br>'
+   }
+
+}    // end extended class myCat
+
+
+
+ myPet = new myCat('Fluffy', 14)
+ myPet.myShow()
+
+}"><br><br>
+
+
+
+<div id='myDiv131'>...</div><br> 
+
+
+
+<input id="myButton132" type="button" value="The Ocean" onclick="{
+
+class myAnimal {
+   constructor(passName, passAge) {
+      this.myName = passName;
+      this.myAge = passAge;
+}
+
+myShow(){
+    document.getElementById('myDiv132').innerHTML = 'Hello '+ this.myName + '. You are ' + this.myAge + ' years old<br>'
+  }
+
+}   // end class myAnimal 
+
+class myCat extends myAnimal {
+
+	myShow(){
+	   document.getElementById('myDiv132').innerHTML = this.myName + ' is a Ocean that is ' + this.myAge + ' million km² <br>'
+   }
+
+}    // end extended class myCat
+
+
+
+ myPet = new myCat('The Pacific', 161.8 )
+ myPet.myShow()
+
+}"><br><br>
+
+<div id='myDiv132'>...</div><br> 
+
+
+
+
+
+<input id="myButton133" type="button" value="Canada" onclick="{
+
+class myAnimal {
+   constructor(passName, passAge) {
+      this.myName = passName;
+      this.myAge = passAge;
+}
+
+myShow(){
+    document.getElementById('myDiv133').innerHTML = 'Hello '+ this.myName + '. You are ' + this.myAge + ' years old<br>'
+  }
+
+}   // end class myAnimal 
+
+class myCat extends myAnimal {
+
+	myShow(){
+	   document.getElementById('myDiv133').innerHTML = this.myName + ' is a Country that has ' + this.myAge + ' million people <br>'
+   }
+
+}    // end extended class myCat
+
+
+
+ myPet = new myCat('Canada', 37.06 )
+ myPet.myShow()
+
+}"><br><br>
+
+<div id='myDiv133'>...</div><br> 
