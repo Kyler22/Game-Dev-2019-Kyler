@@ -1,6 +1,6 @@
 <h2 align=center>T4A03-random-bounce-console-score-kyler.html</h2>
 
-<img src="water_game.png" id="Water" style="position:relative; z-index:-1; left:0px; top:0px; height:100px; width:60px;">
+<img src="water_game.png" id="Water" style="position:relative; z-index:-1; left:100px; top:50px; height:100px; width:60px;">
 
 <imput type=text id=myScore value=0>
 
@@ -13,14 +13,14 @@ var myTotal = 0
 function checkWalls(){
 
   //bounse of right side of screen
-  if (parseInt(document.getElementById('Water').style.left) > 800){	
+  if (parseInt(document.getElementById('Water').style.left) > 850){	
 	myDirection = myDirection * -1
 	myTotal = myTotal + 1
 	document.getElementById('myScore').value = myTotal
 }
 //you write left side bounce 
 
-  if (parseInt(document.getElementById('Water').style.left) < 0){	
+  if (parseInt(document.getElementById('Water').style.left) < 100){	
 	myDirection = myDirection * -1
 	myTotal = myTotal + 1
 	document.getElementById('myScore').value = myTotal
@@ -51,7 +51,7 @@ function checkWalls(){
 <input type=button value="auto right" onclick="{
   clearInterval(myLooping)
   myLooping = setInterval(function(){
-     mySpeed = (Math.floor(Math.random()*50)+5) * myDirection
+     mySpeed = 40 * myDirection
      document.getElementById('Water').style.left = parseInt(document.getElementById('Water').style.left) + mySpeed + 'px'
      checkWalls()
      console.log(mySpeed)
@@ -63,7 +63,7 @@ function checkWalls(){
 <input type=button value="auto top" onclick="{
   clearInterval(myLooping)
   myLooping = setInterval(function(){
-     mySpeed = (Math.floor(Math.random()*50)+5) * myDirection
+     mySpeed = 40 * myDirection
      document.getElementById('Water').style.top = parseInt(document.getElementById('Water').style.top) + mySpeed + 'px'
      checkWalls()
      console.log(mySpeed)
@@ -77,20 +77,7 @@ function checkWalls(){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</head>
+</style>
 </body>
 </html>
