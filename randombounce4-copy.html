@@ -30,6 +30,15 @@ function myHitOther(my1, my2){
 
 
 
+<body bgcolor="blac" onKeyDown="{wasd(event)}">
+
+<div width="400" height="200" name="myDivName" id="myDivId"> 56 </div><hr>
+
+<input type=text value=56 id="myText02">
+
+
+
+
 <img src="water_game.png" id="Water01" style="position:absolute; z-index:-1; left:100px; top:50px; height:100px; width:60px;">
 
 <img src="water_game.png" id="Water02" style="position:absolute; z-index:-1; left:500px; top:100px; height:100px; width:60px;">
@@ -48,6 +57,8 @@ var myTotal = 0
 
 
 
+
+
 function checkCollisions(){
 
    if (myHitOther('Water01','Fire')){ document.getElementById('Water01').style.left = '-100px' }
@@ -57,6 +68,12 @@ function checkCollisions(){
 
 
 function checkWalls(){
+
+
+ // mySpeed = document.getElementById('myText02').value
+  mySpeed = document.getElementById('myDivId').innerHTML
+
+
 
 
   if (parseInt(document.getElementById('Fire').style.left) > 850){	
@@ -89,24 +106,28 @@ function checkWalls(){
 	myDirection01 = myDirection01 * -1
 	myTotal = myTotal + 1
 	document.getElementById('myScore').value = myTotal
+
   }
 
   if (parseInt(document.getElementById('Water01').style.left) < 100){	
 	myDirection01 = myDirection01 * -1
 	myTotal = myTotal + 1
 	document.getElementById('myScore').value = myTotal
+
   }
 
   if (parseInt(document.getElementById('Water01').style.top) < 0){	
 	myDirection01 = myDirection01 * -1
 	myTotal = myTotal + 1
 	document.getElementById('myScore').value = myTotal
+
    }
 
   if (parseInt(document.getElementById('Water01').style.top) > 450){	
 	myDirection01 = myDirection01 * - 1
 	myTotal = myTotal + 1
 	document.getElementById('myScore').value = myTotal
+
    }
 
 
@@ -118,24 +139,28 @@ function checkWalls(){
 	myDirection02 = myDirection02 * -1
 	myTotal = myTotal + 1
 	document.getElementById('myScore').value = myTotal
+
   }
 
   if (parseInt(document.getElementById('Water02').style.left) < 100){	
 	myDirection02 = myDirection02 * -1
 	myTotal = myTotal + 1
 	document.getElementById('myScore').value = myTotal
+
   }
 
   if (parseInt(document.getElementById('Water02').style.top) < 0){	
 	myDirection02 = myDirection02 * -1
 	myTotal = myTotal + 1
 	document.getElementById('myScore').value = myTotal
+	
    }
 
   if (parseInt(document.getElementById('Water02').style.top) > 450){	
 	myDirection02 = myDirection02 * - 1
 	myTotal = myTotal + 1
 	document.getElementById('myScore').value = myTotal
+
    }
 
 
@@ -171,8 +196,6 @@ function wasd(event){
 
 
 </script>
-
-<body bgcolor="black" onKeyDown="{wasd(event)}">
 
 
 
