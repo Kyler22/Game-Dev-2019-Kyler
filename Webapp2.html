@@ -127,9 +127,50 @@ function sendToParticle(myIn){
    
 
 
+<input type=button value="start" onclick="{
+	
+    document.getElementById('Kyler').click()
+    document.getElementById('MyRight').click()
+  
 
 
+}">
 
+<br>
+
+
+<div width="400" height="200" name="myDivName" id="myDivId">output here</div><hr>
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
    <h2 align=center>Web <a href="http://particle.io">Particle.io</a> App</h2>
 
@@ -187,7 +228,6 @@ Get this from the settings area when logged into <a href="http://particle.io/bui
 
 
   
-<div width="400" height="200" name="myDivName" id="myDivId"> output here </div><hr>
    
    
    
@@ -213,7 +253,8 @@ Get this from the settings area when logged into <a href="http://particle.io/bui
   
 </script>
 
-<input type="button" value="KYLER" onClick="{
+<input   id="Kyler" type="button" value="KYLER" onClick="{
+
 
  clearInterval(myStore1)
 
@@ -311,6 +352,315 @@ Note that Advanced users can also use the pin numbers, so D7 = pin 7 on Photon b
      
    
    <hr>
+
+
+
+
+
+
+
+<h2 align=center>T4A03-random-bounce-console-score-kyler.html</h2>
+
+
+<script>
+
+
+
+
+
+
+function myHitOther(my1, my2){
+   left1   = parseInt(document.getElementById(my1).style.left)
+   right1  = left1 + parseInt(document.getElementById(my1).style.width)
+   top1    = parseInt(document.getElementById(my1).style.top)   
+   bottom1 = top1   + parseInt(document.getElementById(my1).style.height)
+   left2   = parseInt(document.getElementById(my2).style.left)
+   right2  = left2 + parseInt(document.getElementById(my2).style.width)
+   top2    = parseInt(document.getElementById(my2).style.top)   
+   bottom2 = top2   + parseInt(document.getElementById(my2).style.height)
+   if ((right1  >=  left2  ) &&      	   
+       (bottom1 >=  top2   ) &&
+       (left1   <=  right2 ) &&
+       (top1    <=  bottom2) ){
+       return true
+   }
+}
+</script>
+
+
+
+
+
+<body bgcolor="blac" onKeyDown="{wasd(event)}">
+
+<div width="400" height="200" name="myDivName" id="myDivId"> 56 </div><hr>
+
+<input type=text value=56 id="myText02">
+
+
+
+
+<img src="water_game.png" id="Water01" style="position:absolute; z-index:-1; left:100px; top:50px; height:100px; width:60px;">
+
+<img src="water_game.png" id="Water02" style="position:absolute; z-index:-1; left:500px; top:100px; height:100px; width:60px;">
+
+
+<img src="flame_game.png" id="Fire" style="position:absolute; z-index:-1; left:300px; top:50px; height:100px; width:60px;">
+
+<imput type=text id=myScore value=0>
+
+<script>
+var myLooping = 0
+var mySpeed = 5
+var myDirection01 = 1
+var myDirection02 = 1
+var myTotal = 0 
+
+
+
+
+
+function checkCollisions(){
+
+   if (myHitOther('Water01','Fire')){ document.getElementById('Water01').style.left = '-100px' }
+   if (myHitOther('Water02','Fire')){ document.getElementById('Water02').style.left = '-100px' }
+
+}
+
+
+function checkWalls(){
+
+
+ // mySpeed = document.getElementById('myText02').value
+
+
+  if (document.getElementById('myDivId').innerHTML == 'Processing...' ||  document.getElementById('myDivId').innerHTML ==  'output here') { }
+      else {
+         mySpeed = parseInt(document.getElementById('myDivId').innerHTML) * 0.75
+  }
+
+ // if (Number.isInteger(document.getElementById('myDivId').innerHTML))  {
+ //    alert(document.getElementById('myDivId').innerHTML)
+ //    mySpeed = parseInt(document.getElementById('myDivId').innerHTML) * 0.75
+     
+  // }
+
+   //mySpeed = parseInt(document.getElementById('myDivId').innerHTML) * 0.75
+
+
+
+  if (parseInt(document.getElementById('Fire').style.left) > 850){	
+      document.getElementById('Fire').style.left  = '840px' 
+  }
+
+  if (parseInt(document.getElementById('Fire').style.left) < 0){	
+
+      document.getElementById('Fire').style.left  = '10px' 
+  }
+
+
+
+
+  if (parseInt(document.getElementById('Fire').style.top) > 600){	
+      document.getElementById('Fire').style.top  = '590px' 
+  }
+
+  if (parseInt(document.getElementById('Fire').style.top) < 50){	
+
+      document.getElementById('Fire').style.top  = '60px' 
+  }
+
+
+
+
+
+
+  if (parseInt(document.getElementById('Water01').style.left) > 850){	
+	myDirection01 = myDirection01 * -1
+	myTotal = myTotal + 1
+	document.getElementById('myScore').value = myTotal
+
+  }
+
+  if (parseInt(document.getElementById('Water01').style.left) < 100){	
+	myDirection01 = myDirection01 * -1
+	myTotal = myTotal + 1
+	document.getElementById('myScore').value = myTotal
+
+  }
+
+  if (parseInt(document.getElementById('Water01').style.top) < 0){	
+	myDirection01 = myDirection01 * -1
+	myTotal = myTotal + 1
+	document.getElementById('myScore').value = myTotal
+
+   }
+
+  if (parseInt(document.getElementById('Water01').style.top) > 450){	
+	myDirection01 = myDirection01 * - 1
+	myTotal = myTotal + 1
+	document.getElementById('myScore').value = myTotal
+
+   }
+
+
+
+
+
+
+  if (parseInt(document.getElementById('Water02').style.left) > 850){	
+	myDirection02 = myDirection02 * -1
+	myTotal = myTotal + 1
+	document.getElementById('myScore').value = myTotal
+
+  }
+
+  if (parseInt(document.getElementById('Water02').style.left) < 100){	
+	myDirection02 = myDirection02 * -1
+	myTotal = myTotal + 1
+	document.getElementById('myScore').value = myTotal
+
+  }
+
+  if (parseInt(document.getElementById('Water02').style.top) < 0){	
+	myDirection02 = myDirection02 * -1
+	myTotal = myTotal + 1
+	document.getElementById('myScore').value = myTotal
+	
+   }
+
+  if (parseInt(document.getElementById('Water02').style.top) > 450){	
+	myDirection02 = myDirection02 * - 1
+	myTotal = myTotal + 1
+	document.getElementById('myScore').value = myTotal
+
+   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+
+
+function wasd(event){
+
+
+	if (event.key == 'd') {document.getElementById('Fire').style.left = parseInt(document.getElementById('Fire').style.left) + 10 + 'px'}  // d = go right
+	if (event.key == 's') {document.getElementById('Fire').style.top = parseInt(document.getElementById('Fire').style.top) + 10 + 'px'} // s = go down
+	if (event.key == 'a') {document.getElementById('Fire').style.left = parseInt(document.getElementById('Fire').style.left) - 10 + 'px'}  // d = go left
+	if (event.key == 'w') {document.getElementById('Fire').style.top = parseInt(document.getElementById('Fire').style.top) - 10 + 'px'} // s = go up
+
+
+
+}
+
+
+</script>
+
+
+
+
+
+
+
+<input   id="MyRight" type=button value="auto right" onclick="{
+  clearInterval(myLooping)
+
+  myLooping = setInterval(function(){
+
+     mySpeed = mySpeed * myDirection01
+     document.getElementById('Water01').style.left = parseInt(document.getElementById('Water01').style.left) + mySpeed + 'px'
+     mySpeed = mySpeed * myDirection02
+     document.getElementById('Water02').style.left = parseInt(document.getElementById('Water02').style.left) + mySpeed + 'px'
+
+
+
+     checkWalls()
+     wasd(event)
+     checkCollisions()
+     console.log(mySpeed)
+     console.log(myTotal)
+  }, 200)
+}">
+<input type=button value="auto left" onclick="{
+  clearInterval(myLooping)
+  myLooping = setInterval(function(){
+
+     mySpeed = mySpeed * myDirection01
+     document.getElementById('Water01').style.left = parseInt(document.getElementById('Water01').style.left) - mySpeed + 'px'
+     mySpeed = mySpeed * myDirection02
+     document.getElementById('Water02').style.left = parseInt(document.getElementById('Water02').style.left) - mySpeed + 'px'
+
+
+     checkWalls()
+     wasd(event)
+     checkCollisions()
+     console.log(mySpeed)
+     console.log(myTotal)
+  }, 200)
+}">
+
+
+<input type=button value="auto top" onclick="{
+  clearInterval(myLooping)
+  myLooping = setInterval(function(){
+
+     mySpeed = mySpeed * myDirection01
+     document.getElementById('Water01').style.top = parseInt(document.getElementById('Water01').style.top) + mySpeed + 'px'
+     mySpeed = mySpeed * myDirection02
+     document.getElementById('Water02').style.top = parseInt(document.getElementById('Water02').style.top) + mySpeed + 'px'
+
+
+
+     checkWalls()
+     wasd(event)
+     checkCollisions()
+     console.log(mySpeed)
+     console.log(myTotal)
+  }, 200)
+}">
+<input type=button value="auto bottom" onclick="{
+  clearInterval(myLooping)
+  myLooping = setInterval(function(){
+
+
+     mySpeed = mySpeed * myDirection01
+     document.getElementById('Water01').style.top = parseInt(document.getElementById('Water01').style.top) - mySpeed + 'px'
+     mySpeed = mySpeed * myDirection02
+     document.getElementById('Water02').style.top = parseInt(document.getElementById('Water02').style.top) - mySpeed + 'px'
+
+
+
+     checkWalls()
+     wasd(event)
+     checkCollisions()
+     console.log(mySpeed)
+     console.log(myTotal)
+  }, 200)
+}">
+
+
+		
+
+
+
+
+
+
+
 
 
 
