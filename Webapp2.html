@@ -400,9 +400,13 @@ function myHitOther(my1, my2){
 
 
 
-<img src="water_game.png" id="Water01" style="position:absolute; z-index:-1; left:100px; top:50px; height:100px; width:60px;">
+<img src="water_game.png" id="Water01" style="position:absolute; z-index:-1; left:60px; top:60px; height:60px; width:40px;">
 
-<img src="water_game.png" id="Water02" style="position:absolute; z-index:-1; left:500px; top:100px; height:100px; width:60px;">
+<img src="water_game.png" id="Water02" style="position:absolute; z-index:-1; left:70px; top:200px; height:60px; width:40px;">
+
+<img src="water_game.png" id="Water03" style="position:absolute; z-index:-1; left:100px; top:80px; height:60px; width:40px;">
+
+<img src="water_game.png" id="Water04" style="position:absolute; z-index:-1; left:100px; top:180px; height:60px; width:40px;">
 
 
 <img src="flame_game.png" id="Fire" style="position:absolute; z-index:-1; left:300px; top:50px; height:100px; width:60px;">
@@ -411,9 +415,11 @@ function myHitOther(my1, my2){
 
 <script>
 var myLooping = 0
-var mySpeed = 5
-var myDirection01 = 1
-var myDirection02 = 1
+var mySpeed = 25
+var myDirection01 =  1
+var myDirection02 = - 1
+var myDirection03 =  1
+var myDirection04 = - 1
 var myTotal = 0 
 
 
@@ -424,6 +430,8 @@ function checkCollisions(){
 
    if (myHitOther('Water01','Fire')){ document.getElementById('Water01').style.left = '-100px' }
    if (myHitOther('Water02','Fire')){ document.getElementById('Water02').style.left = '-100px' }
+   if (myHitOther('Water03','Fire')){ document.getElementById('Water03').style.left = '-100px' }
+   if (myHitOther('Water04','Fire')){ document.getElementById('Water04').style.left = '-100px' }
 
 }
 
@@ -482,7 +490,7 @@ function checkWalls(){
 
   }
 
-  if (parseInt(document.getElementById('Water01').style.left) < 100){	
+  if (parseInt(document.getElementById('Water01').style.left) < 0){	
 	myDirection01 = myDirection01 * -1
 	myTotal = myTotal + 1
 	document.getElementById('myScore').value = myTotal
@@ -496,7 +504,7 @@ function checkWalls(){
 
    }
 
-  if (parseInt(document.getElementById('Water01').style.top) > 450){	
+  if (parseInt(document.getElementById('Water01').style.top) > 600){	
 	myDirection01 = myDirection01 * - 1
 	myTotal = myTotal + 1
 	document.getElementById('myScore').value = myTotal
@@ -515,7 +523,7 @@ function checkWalls(){
 
   }
 
-  if (parseInt(document.getElementById('Water02').style.left) < 100){	
+  if (parseInt(document.getElementById('Water02').style.left) < 0){	
 	myDirection02 = myDirection02 * -1
 	myTotal = myTotal + 1
 	document.getElementById('myScore').value = myTotal
@@ -529,7 +537,7 @@ function checkWalls(){
 	
    }
 
-  if (parseInt(document.getElementById('Water02').style.top) > 450){	
+  if (parseInt(document.getElementById('Water02').style.top) > 600){	
 	myDirection02 = myDirection02 * - 1
 	myTotal = myTotal + 1
 	document.getElementById('myScore').value = myTotal
@@ -540,13 +548,66 @@ function checkWalls(){
 
 
 
+  if (parseInt(document.getElementById('Water03').style.left) > 850){	
+	myDirection03 = myDirection03 * -1
+	myTotal = myTotal + 1
+	document.getElementById('myScore').value = myTotal
+
+  }
+
+  if (parseInt(document.getElementById('Water03').style.left) < 0){	
+	myDirection03 = myDirection03 * -1
+	myTotal = myTotal + 1
+	document.getElementById('myScore').value = myTotal
+
+  }
+
+  if (parseInt(document.getElementById('Water03').style.top) < 0){	
+	myDirection03 = myDirection03 * -1
+	myTotal = myTotal + 1
+	document.getElementById('myScore').value = myTotal
+	
+   }
+
+  if (parseInt(document.getElementById('Water03').style.top) > 600){	
+	myDirection03 = myDirection03 * - 1
+	myTotal = myTotal + 1
+	document.getElementById('myScore').value = myTotal
+
+   }
 
 
 
 
 
 
+  if (parseInt(document.getElementById('Water04').style.left) > 850){	
+	myDirection04 = myDirection04 * -1
+	myTotal = myTotal + 1
+	document.getElementById('myScore').value = myTotal
 
+  }
+
+  if (parseInt(document.getElementById('Water04').style.left) < 0){	
+	myDirection04 = myDirection04 * -1
+	myTotal = myTotal + 1
+	document.getElementById('myScore').value = myTotal
+
+  }
+
+  if (parseInt(document.getElementById('Water04').style.top) < 0){	
+	myDirection04 = myDirection04 * -1
+	myTotal = myTotal + 1
+	document.getElementById('myScore').value = myTotal
+
+   }
+
+  if (parseInt(document.getElementById('Water04').style.top) > 600){	
+	myDirection04 = myDirection04 * - 1
+	myTotal = myTotal + 1
+	document.getElementById('myScore').value = myTotal
+
+   }
 
 
 
@@ -581,18 +642,20 @@ function wasd(event){
 
   myLooping = setInterval(function(){
 
-     mySpeed = mySpeed * myDirection01
-     document.getElementById('Water01').style.left = parseInt(document.getElementById('Water01').style.left) + mySpeed + 'px'
-     mySpeed = mySpeed * myDirection02
-     document.getElementById('Water02').style.left = parseInt(document.getElementById('Water02').style.left) + mySpeed + 'px'
+     document.getElementById('Water01').style.left = parseInt(document.getElementById('Water01').style.left) + (mySpeed * myDirection01) + 'px'
 
+     document.getElementById('Water02').style.left = parseInt(document.getElementById('Water02').style.left) +  (mySpeed * myDirection02) + 'px'
 
+     document.getElementById('Water03').style.left = parseInt(document.getElementById('Water03').style.left) +  (mySpeed * myDirection03) + 'px'
+
+     document.getElementById('Water04').style.left = parseInt(document.getElementById('Water04').style.left) +  (mySpeed * myDirection04) + 'px'
+     console.log(document.getElementById('Water04').style.left)
 
      checkWalls()
      wasd(event)
      checkCollisions()
-     console.log(mySpeed)
-     console.log(myTotal)
+    // console.log(mySpeed)
+    // console.log(myTotal)
   }, 200)
 }">
 <input type=button value="auto left" onclick="{
@@ -603,7 +666,11 @@ function wasd(event){
      document.getElementById('Water01').style.left = parseInt(document.getElementById('Water01').style.left) - mySpeed + 'px'
      mySpeed = mySpeed * myDirection02
      document.getElementById('Water02').style.left = parseInt(document.getElementById('Water02').style.left) - mySpeed + 'px'
-
+     mySpeed = mySpeed * myDirection03
+     document.getElementById('Water03').style.left = parseInt(document.getElementById('Water03').style.left) - mySpeed + 'px'
+     mySpeed = mySpeed * myDirection04
+     document.getElementById('Water04').style.left = parseInt(document.getElementById('Water04').style.left) - mySpeed + 'px'
+     
 
      checkWalls()
      wasd(event)
@@ -622,8 +689,10 @@ function wasd(event){
      document.getElementById('Water01').style.top = parseInt(document.getElementById('Water01').style.top) + mySpeed + 'px'
      mySpeed = mySpeed * myDirection02
      document.getElementById('Water02').style.top = parseInt(document.getElementById('Water02').style.top) + mySpeed + 'px'
-
-
+     mySpeed = mySpeed * myDirection03
+     document.getElementById('Water03').style.top = parseInt(document.getElementById('Water03').style.top) + mySpeed + 'px'
+     mySpeed = mySpeed * myDirection04
+     document.getElementById('Water04').style.top = parseInt(document.getElementById('Water04').style.top) + mySpeed + 'px'
 
      checkWalls()
      wasd(event)
@@ -633,6 +702,10 @@ function wasd(event){
   }, 200)
 }">
 <input type=button value="auto bottom" onclick="{
+
+
+
+
   clearInterval(myLooping)
   myLooping = setInterval(function(){
 
@@ -641,8 +714,10 @@ function wasd(event){
      document.getElementById('Water01').style.top = parseInt(document.getElementById('Water01').style.top) - mySpeed + 'px'
      mySpeed = mySpeed * myDirection02
      document.getElementById('Water02').style.top = parseInt(document.getElementById('Water02').style.top) - mySpeed + 'px'
-
-
+     mySpeed = mySpeed * myDirection03
+     document.getElementById('Water03').style.top = parseInt(document.getElementById('Water03').style.top) - mySpeed + 'px'
+     mySpeed = mySpeed * myDirection04
+     document.getElementById('Water04').style.top = parseInt(document.getElementById('Water04').style.top) - mySpeed + 'px'
 
      checkWalls()
      wasd(event)
