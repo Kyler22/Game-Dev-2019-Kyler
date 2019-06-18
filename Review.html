@@ -1,0 +1,113 @@
+
+
+
+
+<div class="Basics">
+  <div class="Basics">Basics</div>
+  <ul>
+    <li>1. input / output   -- information into and out of your program
+
+x = document.all.myText01.value   // example input
+
+document.getElementById('myDiv01').innerHTML = x // example output
+document.all.myDiv01.innerHTML = x // example output
+
+
+<br>2. variables  -- store stuff
+
+x = 3  
+
+<br>3. loops    --repeat stuff
+
+for (x=0; x < 3; x++){}   // example for loop 
+
+<br>4. Decisions   --decide stuff based on stored stuff
+
+if(x==3) {}
+
+if (x <= 3){}  else {}
+
+if ((x > 3) && (x < 9))  {}  else {}
+
+<br>5. functions     -- named group of code that can be called multiple times
+
+function myFun() {}  // defines a group of code
+
+myFun()  // activates
+
+<br>6. Arrays -- a numbered list of variables
+
+   x[0] = 3;    x[1] = 6; 
+
+<br>7. Objects   -- a named list of variables
+
+  x = {age:20, name:'fred'}
+
+  x.age    x.name
+
+<br>8. events --trigger c omputer code
+
+onClick(), onMouseOver(), onBlur(), onFocus() about 20 learn them
+
+<br>9. Classes  -- groups variables and functions to make programming easier
+  methods    --> functions
+  properties --> variables</li>
+  </ul>
+</div>
+
+
+
+
+
+
+
+<input type=button value="arrays" onclick="{
+ myMax = 3
+ myArray = new Array(myMax)
+ myArray[1] = 'Fred'
+ myArray[2] = 'Tom'
+ myArray[3] = 'Marry'
+ document.all.myArea01.value = ''
+ for ( x = 1; x <= myMax; x++){
+  document.all,myArea01.value += myArray[x] + ', '
+ }
+}">
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+
+function my01(){
+   document.all.myArea01.value = 'wow it worked'
+}
+
+</script>
+
+<input type=text id="myText01" value="7"><br>
+<textarea id="myArea01" rows=4 cols=70>...</textarea><br>
+
+<input type=button value="output and function" onclick="{
+  my01()
+}">
+
+
+<input type=button value="input" onclick="{
+  document.all.myArea01.value = document.all.myText01.value
+}">
+
+
+
+<input type=button value="loops" onclick="{
+  for (let  x = 1; x <= 3;  x++){
+     document.all.myArea01.value +=  x + ', '
+  }
+}">
